@@ -130,7 +130,7 @@ passData <- function(rfobj, x, tt, k) {
 
 aggregateNodeFeature <- function(nf) {
   # aggregate list of node feature data returned from each tree
-
+  nf <- as.numeric(unlist(nf)) # add by pang
   ntree <- length(nf)
   row.offset <- c(0, cumsum(sapply(nf, function(z) max(z[,1])))[-ntree])
   n.rows <- sapply(nf, nrow)
